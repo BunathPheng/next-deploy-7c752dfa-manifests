@@ -1,0 +1,21 @@
+---
+# Source: helm for kubernetes/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: next-deploy-7c752dfa                  # Ingress name
+  labels:
+    app: next-deploy-7c752dfa
+spec:
+  ingressClassName: nginx   # Optional ingressClass
+  rules:
+    - host: "next-deploy-7c752dfa.smartops.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: next-deploy-7c752dfa               # Links to Service name dynamically
+                port:
+                  number: 3000  # Links to service port dynamically
